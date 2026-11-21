@@ -16,7 +16,26 @@ In 2025, as an undergraduate at National Taiwan University, I proposed a system 
 
 What I actually built was the vision half, up to one milestone: **counting chickens around feeders** (F1 0.617). The next step, telling a bird that is *eating* from one that is only *standing near* the feeder, never happened, because the project ended there.
 
-One problem from the field stayed with me. The Raspberry Pis in the house could only record. Every frame went to a lab server, and covering the whole farm (10 houses, about 150 cameras) would mean moving about 1.75 TB of video a day. So I took the counting model and asked a systems question: **can the inference run on site instead?** This repo is that second chapter, porting the model to a Jetson Orin NX and measuring it end to end, including the optimizations that didn't work.
+One problem from the field stayed with me. The Raspberry Pis in the house could only record: the chicken model runs at **0.05 FPS** on a Pi 4, while the camera produces 5. Every frame went to a lab server, and covering the whole farm (10 houses, about 150 cameras) would mean moving about 1.75 TB of video a day. So I took the counting model and asked a systems question: **can the inference run on site instead?** This repo is that second chapter, porting the model to a Jetson Orin NX and measuring it end to end, including the optimizations that didn't work.
+
+## Field setup
+
+![House layout and camera placement](docs/assets/house_layout.png)
+
+*One house is 113 m × 14.8 m, and the farm has 10 of them. Capture units hang on the central beams every 8 m. Each unit's two cameras cover the two halves of the house (shaded).*
+
+| | |
+|---|---|
+| Capture unit | Raspberry Pi 4B (8 GB) + **two** 130° wide-FOV cameras, one facing each side of the house |
+| Mounting | Overhead side view from the beam, **2.2 m** above the litter, looking down at an angle |
+| Recording | 1920×1080 H.264 at **5 FPS**, saved as 5-minute clips, copied to the lab NAS for offline inference |
+| Scene | Commercial broiler house with pan feeders in rows; 650–750 birds in one camera's view |
+
+![What one camera sees](docs/assets/camera_view.jpg)
+
+*An unannotated frame from one installed camera. The angled view is why far feeders look small and near ones look large, and why the feeder zones below need one radius per row.*
+
+The proposal planned fisheye lenses with software undistortion; the installed system used 130° wide-FOV cameras instead.
 
 ## What it does
 
