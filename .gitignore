@@ -1,0 +1,20 @@
+# weights & engines (distributed via GitHub Releases / rebuilt per device)
+*.pt
+*.onnx
+*.engine
+*.plan
+int8_calib.cache
+# data
+data/
+*.mp4
+benchmarks/int8/calib/
+/results/
+/runs/
+# demo intermediates
+docs/assets/*.mp4
+# python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+.work/

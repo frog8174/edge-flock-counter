@@ -1,0 +1,509 @@
+<title>%%TITLE%%</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,400;10..72,600;10..72,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    color-scheme: light;
+    --bg:            #f1f1ea;
+    --surface:       #fbfbf7;
+    --surface-raise: #ffffff;
+    --ink:           #18180f;
+    --ink-2:         #59584a;
+    --ink-3:         #8c8a78;
+    --line:          #dddac9;
+    --line-soft:     #eae8dc;
+    --accent:        #a8571c;
+    --accent-soft:   #f2e0cd;
+    --accent-ink:    #ffffff;
+    --series-total:  #2a78d6;
+    --series-feed:   #eb6834;
+    --series-g0:     #2a78d6;
+    --series-g1:     #eb6834;
+    --gap-fill:      rgba(140, 138, 120, 0.10);
+    --gap-line:      rgba(140, 138, 120, 0.35);
+    --good:          #0ca30c;
+    --shadow:        0 1px 2px rgba(24,24,15,0.04), 0 6px 20px rgba(24,24,15,0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg:            #101110;
+      --surface:       #191a17;
+      --surface-raise: #1f201c;
+      --ink:           #f3f2e8;
+      --ink-2:         #c2c0b0;
+      --ink-3:         #8c8a78;
+      --line:          #34342c;
+      --line-soft:     #26261f;
+      --accent:        #e0913f;
+      --accent-soft:   #3a2c1a;
+      --accent-ink:    #17130a;
+      --series-total:  #3987e5;
+      --series-feed:   #d95926;
+      --series-g0:     #3987e5;
+      --series-g1:     #d95926;
+      --gap-fill:      rgba(180, 178, 160, 0.07);
+      --gap-line:      rgba(180, 178, 160, 0.25);
+      --good:          #0ca30c;
+      --shadow:        0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg:            #101110;
+    --surface:       #191a17;
+    --surface-raise: #1f201c;
+    --ink:           #f3f2e8;
+    --ink-2:         #c2c0b0;
+    --ink-3:         #8c8a78;
+    --line:          #34342c;
+    --line-soft:     #26261f;
+    --accent:        #e0913f;
+    --accent-soft:   #3a2c1a;
+    --accent-ink:    #17130a;
+    --series-total:  #3987e5;
+    --series-feed:   #d95926;
+    --series-g0:     #3987e5;
+    --series-g1:     #d95926;
+    --gap-fill:      rgba(180, 178, 160, 0.07);
+    --gap-line:      rgba(180, 178, 160, 0.25);
+    --good:          #0ca30c;
+    --shadow:        0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; }
+
+  /* ── Header ── */
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 28px;
+  }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  h1 {
+    font-family: "Big Shoulders", "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-size: clamp(40px, 7vw, 64px);
+    line-height: 0.96;
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  header p.lede {
+    margin: 0;
+    max-width: 62ch;
+    color: var(--ink-2);
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .chip {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 5px 10px;
+    white-space: nowrap;
+  }
+  .chip b { color: var(--ink); font-weight: 600; }
+  .chip.warn { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+
+  /* ── Stat tiles ── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .stat {
+    background: var(--surface);
+    padding: 18px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .stat .label {
+    font-size: 11.5px;
+    color: var(--ink-3);
+    letter-spacing: 0.02em;
+  }
+  .stat .value {
+    font-family: "Big Shoulders", sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .stat .value.accent { color: var(--accent); }
+  .stat .sub { font-size: 11.5px; color: var(--ink-3); font-family: "IBM Plex Mono", monospace; }
+
+  /* ── Section / panel ── */
+  section.panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 22px 22px 14px;
+  }
+  .panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  .panel-head h2 {
+    font-family: "Big Shoulders", sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+  .panel-head .note { font-size: 12.5px; color: var(--ink-3); }
+  .panel-desc { font-size: 13px; color: var(--ink-2); margin: 2px 0 10px; max-width: 68ch; line-height: 1.55; }
+
+  .legend { display: flex; gap: 16px; font-size: 12px; color: var(--ink-2); }
+  .legend .item { display: flex; align-items: center; gap: 6px; }
+  .legend .swatch { width: 12px; height: 2px; border-radius: 1px; }
+
+  .chart-wrap { position: relative; overflow-x: auto; }
+  svg.chart { display: block; width: 100%; height: auto; }
+  .gridline { stroke: var(--line-soft); stroke-width: 1; }
+  .axis-line { stroke: var(--line); stroke-width: 1; }
+  .axis-label { fill: var(--ink-3); font-size: 10.5px; font-family: "IBM Plex Mono", monospace; }
+  .gap-band { fill: var(--gap-fill); }
+  .gap-edge { stroke: var(--gap-line); stroke-width: 1; stroke-dasharray: 2 2; }
+  .gap-label { fill: var(--ink-3); font-size: 9.5px; font-family: "IBM Plex Mono", monospace; }
+  .crosshair-line { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 3 3; pointer-events: none; }
+  .hover-dot { pointer-events: none; }
+
+  .tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: var(--surface-raise);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 8px 11px;
+    font-size: 12px;
+    color: var(--ink);
+    line-height: 1.6;
+    transform: translate(-50%, -110%);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.08s ease;
+    z-index: 5;
+  }
+  .tooltip .t-time { font-family: "IBM Plex Mono", monospace; color: var(--ink-3); font-size: 11px; }
+  .tooltip .t-row { display: flex; align-items: center; gap: 6px; }
+  .tooltip .t-dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+  .tooltip .t-val { font-family: "IBM Plex Mono", monospace; font-weight: 500; margin-left: auto; }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  footer h3 {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 4px;
+  }
+  footer ul { margin: 0; padding-left: 18px; color: var(--ink-2); font-size: 13px; line-height: 1.75; }
+  footer code { font-family: "IBM Plex Mono", monospace; font-size: 12px; background: var(--line-soft); padding: 1px 5px; border-radius: 4px; }
+
+  @media (max-width: 640px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">%%EYEBROW%%</div>
+    <h1>%%TITLE%%</h1>
+    <p class="lede">%%LEDE%%</p>
+    <div class="meta-row">
+%%META_CHIPS%%
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="label">進食比例最高峰</div>
+      <div class="value accent">%%STAT_PEAK_TIME%%</div>
+      <div class="sub">around_rate %%STAT_PEAK_VAL%%</div>
+    </div>
+    <div class="stat">
+      <div class="label">進食比例最低點</div>
+      <div class="value">%%STAT_TROUGH_TIME%%</div>
+      <div class="sub">around_rate %%STAT_TROUGH_VAL%%</div>
+    </div>
+    <div class="stat">
+      <div class="label">全天平均在餵食器周圍</div>
+      <div class="value">%%STAT_AVG_RATE%%</div>
+      <div class="sub">%%STAT_FRAME_COUNT%% 幀平均</div>
+    </div>
+    <div class="stat">
+      <div class="label">畫面雞隻數</div>
+      <div class="value">%%STAT_AVG_TOTAL%%</div>
+      <div class="sub">平均 / 幀，峰值 %%STAT_MAX_TOTAL%%</div>
+    </div>
+  </div>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>畫面雞隻總數</h2>
+      <span class="note">5 分鐘平均 &middot; 隻 / 幀</span>
+    </div>
+    <p class="panel-desc">%%DESC_TOTAL%%</p>
+    <div class="chart-wrap"><svg class="chart" id="chart-total"></svg></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>餵食器周圍比例</h2>
+      <span class="note">5 分鐘平均 &middot; around_rate</span>
+    </div>
+    <p class="panel-desc">%%DESC_RATE%%</p>
+    <div class="chart-wrap"><svg class="chart" id="chart-rate"></svg></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>兩組餵食器比較</h2>
+      <span class="note">5 分鐘平均 &middot; 隻數</span>
+    </div>
+    <p class="panel-desc">%%DESC_GROUPS%%</p>
+    <div class="legend" style="margin-bottom:10px;">
+      <span class="item"><span class="swatch" style="background:var(--series-g0)"></span>group 0（遠）</span>
+      <span class="item"><span class="swatch" style="background:var(--series-g1)"></span>group 1（近）</span>
+    </div>
+    <div class="chart-wrap"><svg class="chart" id="chart-groups"></svg></div>
+  </section>
+
+%%THERMAL_SECTION%%
+
+  <footer>
+    <h3>方法論備註</h3>
+    <ul>
+%%FOOTER_NOTES%%
+    </ul>
+  </footer>
+
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+const feedData = %%CHART_DATA_JSON%%;
+const thermalData = %%THERMAL_DATA_JSON%%;
+
+function timeToMin(t) {
+  const [h, m] = t.split(':').map(Number);
+  return h * 60 + m;
+}
+
+function buildSegments(points, xKey, yKey, stepMin, gapFactor) {
+  // points: array of {x_label, ...}; returns array of arrays (broken at gaps)
+  const pts = points.map(p => ({ x: timeToMin(p[xKey]), y: p[yKey], raw: p }))
+                     .sort((a, b) => a.x - b.x);
+  const segs = [];
+  let cur = [pts[0]];
+  const gaps = [];
+  for (let i = 1; i < pts.length; i++) {
+    const dt = pts[i].x - pts[i - 1].x;
+    if (dt > stepMin * gapFactor) {
+      segs.push(cur);
+      gaps.push([pts[i - 1].x, pts[i].x]);
+      cur = [pts[i]];
+    } else {
+      cur.push(pts[i]);
+    }
+  }
+  segs.push(cur);
+  return { segs, gaps, xMin: pts[0].x, xMax: pts[pts.length - 1].x };
+}
+
+function renderChart(svgId, points, xKey, seriesList, opts) {
+  const svg = document.getElementById(svgId);
+  const W = 840, H = opts.height || 210;
+  const padL = 42, padR = 14, padT = 14, padB = 26;
+  const plotW = W - padL - padR, plotH = H - padT - padB;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  svg.innerHTML = '';
+
+  // combine all series to get global x range + segments/gaps (use first series' step)
+  const built = seriesList.map(s => buildSegments(points, xKey, s.key, opts.stepMin, opts.gapFactor || 1.8));
+  const xMin = Math.min(...built.map(b => b.xMin));
+  const xMax = Math.max(...built.map(b => b.xMax));
+  let yMin = opts.yMin, yMax = opts.yMax;
+  if (yMin === undefined) {
+    const allY = points.map(p => seriesList.map(s => p[s.key])).flat();
+    yMin = 0;
+    yMax = Math.max(...allY) * 1.12;
+  }
+
+  const xScale = (x) => padL + (x - xMin) / (xMax - xMin) * plotW;
+  const yScale = (y) => padT + plotH - (y - yMin) / (yMax - yMin) * plotH;
+
+  const ns = 'http://www.w3.org/2000/svg';
+  const el = (tag, attrs) => {
+    const e = document.createElementNS(ns, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  };
+
+  // gridlines (y) — 4 steps
+  const ySteps = 4;
+  for (let i = 0; i <= ySteps; i++) {
+    const val = yMin + (yMax - yMin) * i / ySteps;
+    const yy = yScale(val);
+    svg.appendChild(el('line', { x1: padL, x2: W - padR, y1: yy, y2: yy, class: 'gridline' }));
+    const label = opts.yFmt ? opts.yFmt(val) : Math.round(val);
+    const t = el('text', { x: padL - 8, y: yy + 3, class: 'axis-label', 'text-anchor': 'end' });
+    t.textContent = label;
+    svg.appendChild(t);
+  }
+
+  // x-axis hour ticks
+  const firstHour = Math.ceil(xMin / 60) * 60;
+  for (let x = firstHour; x <= xMax; x += 60) {
+    const xx = xScale(x);
+    const t = el('text', { x: xx, y: H - 6, class: 'axis-label', 'text-anchor': 'middle' });
+    t.textContent = String(Math.floor(x / 60)).padStart(2, '0') + ':00';
+    svg.appendChild(t);
+  }
+  svg.appendChild(el('line', { x1: padL, x2: W - padR, y1: padT + plotH, y2: padT + plotH, class: 'axis-line' }));
+
+  // gap bands (use the union of gaps across series — take first series' gaps, they share timeline)
+  const gaps = built[0].gaps;
+  gaps.forEach(([g0, g1]) => {
+    const x0 = xScale(g0), x1 = xScale(g1);
+    svg.appendChild(el('rect', { x: x0, y: padT, width: Math.max(x1 - x0, 1), height: plotH, class: 'gap-band' }));
+    svg.appendChild(el('line', { x1: x0, x2: x0, y1: padT, y2: padT + plotH, class: 'gap-edge' }));
+    svg.appendChild(el('line', { x1: x1, x2: x1, y1: padT, y2: padT + plotH, class: 'gap-edge' }));
+    if (x1 - x0 > 30) {
+      const t = el('text', { x: (x0 + x1) / 2, y: padT + plotH / 2, class: 'gap-label', 'text-anchor': 'middle' });
+      t.textContent = '缺影片';
+      svg.appendChild(t);
+    }
+  });
+
+  // lines per series
+  seriesList.forEach((s, si) => {
+    const { segs } = built[si];
+    segs.forEach(seg => {
+      if (seg.length < 2) return;
+      const d = seg.map((p, i) => `${i === 0 ? 'M' : 'L'} ${xScale(p.x).toFixed(1)} ${yScale(p.y).toFixed(1)}`).join(' ');
+      svg.appendChild(el('path', { d, fill: 'none', stroke: `var(${s.color})`, 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
+      if (opts.area) {
+        const first = seg[0], last = seg[seg.length - 1];
+        const dArea = d + ` L ${xScale(last.x).toFixed(1)} ${yScale(yMin).toFixed(1)} L ${xScale(first.x).toFixed(1)} ${yScale(yMin).toFixed(1)} Z`;
+        const path = el('path', { d: dArea, fill: `var(${s.color})`, opacity: 0.1 });
+        svg.insertBefore(path, svg.firstChild.nextSibling);
+      }
+    });
+  });
+
+  // hover interaction
+  const hoverGroup = el('g', {});
+  svg.appendChild(hoverGroup);
+  const crosshair = el('line', { class: 'crosshair-line', y1: padT, y2: padT + plotH, x1: -100, x2: -100 });
+  hoverGroup.appendChild(crosshair);
+  const dots = seriesList.map(s => {
+    const d = el('circle', { r: 4, fill: `var(${s.color})`, stroke: 'var(--surface)', 'stroke-width': 2, class: 'hover-dot', cx: -100, cy: -100 });
+    hoverGroup.appendChild(d);
+    return d;
+  });
+
+  const tooltip = document.getElementById('tooltip');
+  const allPointsByX = points.map(p => ({ x: timeToMin(p[xKey]), raw: p })).sort((a, b) => a.x - b.x);
+
+  const hitRect = el('rect', { x: padL, y: padT, width: plotW, height: plotH, fill: 'transparent' });
+  svg.appendChild(hitRect);
+
+  hitRect.addEventListener('mousemove', (ev) => {
+    const rect = svg.getBoundingClientRect();
+    const scaleX = W / rect.width;
+    const mx = (ev.clientX - rect.left) * scaleX;
+    const xVal = xMin + (mx - padL) / plotW * (xMax - xMin);
+    let nearest = allPointsByX[0], best = Infinity;
+    for (const p of allPointsByX) {
+      const d = Math.abs(p.x - xVal);
+      if (d < best) { best = d; nearest = p; }
+    }
+    const xx = xScale(nearest.x);
+    crosshair.setAttribute('x1', xx); crosshair.setAttribute('x2', xx);
+    let rows = '';
+    seriesList.forEach((s, i) => {
+      const yy = yScale(nearest.raw[s.key]);
+      dots[i].setAttribute('cx', xx); dots[i].setAttribute('cy', yy);
+      const valStr = opts.yFmt ? opts.yFmt(nearest.raw[s.key]) : nearest.raw[s.key];
+      rows += `<div class="t-row"><span class="t-dot" style="background:var(${s.color})"></span>${s.label}<span class="t-val">${valStr}</span></div>`;
+    });
+    tooltip.innerHTML = `<div class="t-time">${nearest.raw[xKey]}</div>${rows}`;
+    tooltip.style.left = (rect.left + xx / scaleX + window.scrollX) + 'px';
+    tooltip.style.top = (rect.top + yScale(nearest.raw[seriesList[0].key]) / scaleX + window.scrollY) + 'px';
+    tooltip.style.opacity = 1;
+  });
+  hitRect.addEventListener('mouseleave', () => {
+    tooltip.style.opacity = 0;
+    crosshair.setAttribute('x1', -100); crosshair.setAttribute('x2', -100);
+    dots.forEach(d => { d.setAttribute('cx', -100); d.setAttribute('cy', -100); });
+  });
+}
+
+renderChart('chart-total', feedData, 't', [{ key: 'total', color: '--series-total', label: '雞隻總數' }],
+  { stepMin: 5, area: true, yFmt: v => Math.round(v) });
+
+renderChart('chart-rate', feedData, 't', [{ key: 'rate', color: '--series-feed', label: '周圍比例' }],
+  { stepMin: 5, area: true, yFmt: v => v.toFixed(1) + '%' });
+
+renderChart('chart-groups', feedData, 't', [
+    { key: 'g0', color: '--series-g0', label: 'group 0（遠）' },
+    { key: 'g1', color: '--series-g1', label: 'group 1（近）' },
+  ], { stepMin: 5, yFmt: v => v.toFixed(1) });
+
+if (thermalData.length > 0) {
+  renderChart('chart-temp', thermalData, 't', [{ key: 'temp', color: '--series-feed', label: '溫度' }],
+    { stepMin: 5, height: 170, yMin: 60, yMax: 80, yFmt: v => Math.round(v) + '°C' });
+}
+</script>

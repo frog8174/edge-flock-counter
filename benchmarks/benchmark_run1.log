@@ -1,0 +1,90 @@
+/usr/lib/python3/dist-packages/requests/__init__.py:87: RequestsDependencyWarning: urllib3 (2.5.0) or chardet (4.0.0) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+============================================================
+STAGE 1: PyTorch baseline (.pt, unoptimized)
+============================================================
+Downloading https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11n.pt to 'yolo11n.pt'...
+  0%|          | 0.00/5.35M [00:00<?, ?B/s]  5%|▍         | 256k/5.35M [00:00<00:02, 2.52MB/s] 21%|██        | 1.12M/5.35M [00:00<00:00, 6.19MB/s] 61%|██████    | 3.25M/5.35M [00:00<00:00, 12.8MB/s]100%|██████████| 5.35M/5.35M [00:00<00:00, 13.9MB/s]
+  33.38 ms/frame  |  30.0 FPS
+
+============================================================
+STAGE 2: Exporting to TensorRT engine (FP16) ...
+============================================================
+WARNING ⚠️ TensorRT requires GPU export, automatically assigning device=0
+Ultralytics 8.3.165 🚀 Python-3.10.12 torch-2.3.0 CUDA:0 (Orin, 15656MiB)
+YOLO11n summary (fused): 100 layers, 2,616,248 parameters, 0 gradients, 6.5 GFLOPs
+
+[34m[1mPyTorch:[0m starting from 'yolo11n.pt' with input shape (1, 3, 640, 640) BCHW and output shape(s) (1, 84, 8400) (5.4 MB)
+[31m[1mrequirements:[0m Ultralytics requirement ['onnxruntime-gpu'] not found, attempting AutoUpdate...
+ERROR: Could not find a version that satisfies the requirement onnxruntime-gpu (from versions: none)
+
+[notice] A new release of pip is available: 25.2 -> 26.2.1
+[notice] To update, run: python3 -m pip install --upgrade pip
+ERROR: No matching distribution found for onnxruntime-gpu
+WARNING ⚠️ Retry 1/2 failed: Command 'pip install --no-cache-dir "onnxruntime-gpu" ' returned non-zero exit status 1.
+ERROR: Could not find a version that satisfies the requirement onnxruntime-gpu (from versions: none)
+
+[notice] A new release of pip is available: 25.2 -> 26.2.1
+[notice] To update, run: python3 -m pip install --upgrade pip
+ERROR: No matching distribution found for onnxruntime-gpu
+WARNING ⚠️ Retry 2/2 failed: Command 'pip install --no-cache-dir "onnxruntime-gpu" ' returned non-zero exit status 1.
+WARNING ⚠️ [31m[1mrequirements:[0m ❌ Command 'pip install --no-cache-dir "onnxruntime-gpu" ' returned non-zero exit status 1.
+
+[34m[1mONNX:[0m starting export with onnx 1.17.0 opset 17...
+[34m[1mONNX:[0m slimming with onnxslim 0.1.59...
+[34m[1mONNX:[0m export success ✅ 7.1s, saved as 'yolo11n.onnx' (10.2 MB)
+
+[34m[1mTensorRT:[0m starting export with TensorRT 10.3.0...
+[08/19/2026-11:05:47] [TRT] [I] [MemUsageChange] Init CUDA: CPU +2, GPU +0, now: CPU 877, GPU 4087 (MiB)
+[08/19/2026-11:05:49] [TRT] [I] [MemUsageChange] Init builder kernel library: CPU +927, GPU +1087, now: CPU 1847, GPU 5205 (MiB)
+[08/19/2026-11:05:49] [TRT] [I] ----------------------------------------------------------------
+[08/19/2026-11:05:49] [TRT] [I] Input filename:   yolo11n.onnx
+[08/19/2026-11:05:49] [TRT] [I] ONNX IR version:  0.0.8
+[08/19/2026-11:05:49] [TRT] [I] Opset version:    17
+[08/19/2026-11:05:49] [TRT] [I] Producer name:    pytorch
+[08/19/2026-11:05:49] [TRT] [I] Producer version: 2.3.0
+[08/19/2026-11:05:49] [TRT] [I] Domain:           
+[08/19/2026-11:05:49] [TRT] [I] Model version:    0
+[08/19/2026-11:05:49] [TRT] [I] Doc string:       
+[08/19/2026-11:05:49] [TRT] [I] ----------------------------------------------------------------
+[34m[1mTensorRT:[0m input "images" with shape(1, 3, 640, 640) DataType.FLOAT
+[34m[1mTensorRT:[0m output "output0" with shape(1, 84, 8400) DataType.FLOAT
+[34m[1mTensorRT:[0m building FP16 engine as yolo11n.engine
+[08/19/2026-11:05:49] [TRT] [I] Local timing cache in use. Profiling results in this builder pass will not be stored.
+[08/19/2026-11:12:36] [TRT] [I] Detected 1 inputs and 1 output network tensors.
+[08/19/2026-11:12:41] [TRT] [I] Total Host Persistent Memory: 540208
+[08/19/2026-11:12:41] [TRT] [I] Total Device Persistent Memory: 0
+[08/19/2026-11:12:41] [TRT] [I] Total Scratch Memory: 1382400
+[08/19/2026-11:12:41] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 165 steps to complete.
+[08/19/2026-11:12:41] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 19.4775ms to assign 10 blocks to 165 nodes requiring 10547712 bytes.
+[08/19/2026-11:12:41] [TRT] [I] Total Activation Memory: 10547200
+[08/19/2026-11:12:41] [TRT] [I] Total Weights Memory: 5316484
+[08/19/2026-11:12:41] [TRT] [I] Engine generation completed in 411.977 seconds.
+[08/19/2026-11:12:41] [TRT] [I] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 260 MiB
+[08/19/2026-11:12:41] [TRT] [I] [MemUsageStats] Peak memory usage during Engine building and serialization: CPU: 2844 MiB
+[34m[1mTensorRT:[0m export success ✅ 422.1s, saved as 'yolo11n.engine' (8.3 MB)
+
+Export complete (422.7s)
+Results saved to [1m/home/jetson/edge-ai-demo[0m
+Predict:         yolo predict task=detect model=yolo11n.engine imgsz=640 half 
+Validate:        yolo val task=detect model=yolo11n.engine imgsz=640 data=/usr/src/ultralytics/ultralytics/cfg/datasets/coco.yaml half 
+Visualize:       https://netron.app
+
+============================================================
+STAGE 3: TensorRT engine (optimized, FP16)
+============================================================
+WARNING ⚠️ Unable to automatically guess model task, assuming 'task=detect'. Explicitly define task for your model, i.e. 'task=detect', 'segment', 'classify','pose' or 'obb'.
+Loading yolo11n.engine for TensorRT inference...
+[08/19/2026-11:12:41] [TRT] [I] Loaded engine size: 8 MiB
+[08/19/2026-11:12:41] [TRT] [I] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +10, now: CPU 0, GPU 15 (MiB)
+  28.55 ms/frame  |  35.0 FPS
+
+============================================================
+SUMMARY
+============================================================
+Backend             ms/frame    FPS       
+PyTorch             33.38       30.0      
+TensorRT FP16       28.55       35.0      
+
+TensorRT speedup: 1.17x
+(All inference ran on-device, zero network round-trips.)

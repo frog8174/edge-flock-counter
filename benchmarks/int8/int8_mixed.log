@@ -1,0 +1,25 @@
+[08/19/2026-13:25:00] [TRT] [I] [MemUsageChange] Init CUDA: CPU +1, GPU +0, now: CPU 130, GPU 5638 (MiB)
+[08/19/2026-13:25:02] [TRT] [I] [MemUsageChange] Init builder kernel library: CPU +928, GPU +1092, now: CPU 1101, GPU 6774 (MiB)
+/home/jetson/edge-ai-demo/chicken/build_int8_mixed.py:47: DeprecationWarning: Use Deprecated in TensorRT 10.1. Superseded by explicit quantization. instead.
+  cfg.int8_calibrator = Calibrator(files)
+[08/19/2026-13:25:02] [TRT] [I] Reading Calibration Cache for calibrator: EntropyCalibration2
+[08/19/2026-13:25:02] [TRT] [I] Generated calibration scales using calibration cache. Make sure that calibration cache has latest scales.
+[08/19/2026-13:25:02] [TRT] [I] To regenerate calibration cache, please delete the existing one. TensorRT will generate a new calibration cache.
+[08/19/2026-13:25:03] [TRT] [I] Local timing cache in use. Profiling results in this builder pass will not be stored.
+[08/19/2026-13:34:11] [TRT] [I] [GraphReduction] The approximate region cut reduction algorithm is called.
+[08/19/2026-13:34:11] [TRT] [I] Detected 1 inputs and 3 output network tensors.
+[08/19/2026-13:35:41] [TRT] [I] Total Host Persistent Memory: 1011872
+[08/19/2026-13:35:41] [TRT] [I] Total Device Persistent Memory: 10240
+[08/19/2026-13:35:41] [TRT] [I] Total Scratch Memory: 2419200
+[08/19/2026-13:35:41] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 234 steps to complete.
+[08/19/2026-13:35:41] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 21.9581ms to assign 9 blocks to 234 nodes requiring 76032512 bytes.
+[08/19/2026-13:35:41] [TRT] [I] Total Activation Memory: 76032000
+[08/19/2026-13:35:41] [TRT] [I] Total Weights Memory: 64187908
+[08/19/2026-13:35:41] [TRT] [I] Engine generation completed in 638.121 seconds.
+[08/19/2026-13:35:41] [TRT] [I] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 5 MiB, GPU 152 MiB
+[08/19/2026-13:35:41] [TRT] [I] [MemUsageStats] Peak memory usage during Engine building and serialization: CPU: 2506 MiB
+總層數 694，強制 FP16 138 層 (19.9%)，其餘走 INT8
+建置中（校正快取已存在，跳過重新校正）...
+  沿用既有校正快取 int8_calib.cache
+  沿用既有校正快取 int8_calib.cache
+✅ TNC_int8_mixed.engine  (70.4 MB)

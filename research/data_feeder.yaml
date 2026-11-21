@@ -1,0 +1,7 @@
+# data.yaml
+path: data/feeder_button  # dataset root (not included in repo)
+train: images/train                    # 訓練集相對於 path 的路徑
+val: images/val                        # 驗證集相對於 path 的路徑
+test: images/test                           # 如果有測試集可加，沒有可忽略
+nc: 1                                # 物件類別數，例如 2 類
+names: [ "Feeder" ]          # 各類別名稱

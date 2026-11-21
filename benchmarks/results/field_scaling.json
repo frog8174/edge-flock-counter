@@ -1,0 +1,62 @@
+{
+  "cam_per_house": 15,
+  "houses": 10,
+  "total_cam": 150,
+  "realtime_fps": 5.0,
+  "video_gb_cam_day": 11.7,
+  "video_tb_field_feedperiod": 147.4,
+  "configs": [
+    {
+      "n_streams": 1,
+      "agg_fps": 11.03,
+      "min_stream_fps": 11.03,
+      "realtime_ok": true,
+      "power_w": 17.749613636363637,
+      "fps_per_watt": 0.621,
+      "gpu_util_pct": 51.86363636363637,
+      "streams_at_realtime": 2.21,
+      "scaling_efficiency": null
+    },
+    {
+      "n_streams": 2,
+      "agg_fps": 12.09,
+      "min_stream_fps": 6.04,
+      "realtime_ok": true,
+      "power_w": 21.754216666666668,
+      "fps_per_watt": 0.556,
+      "gpu_util_pct": 81.83333333333333,
+      "streams_at_realtime": 2.42,
+      "scaling_efficiency": 0.548
+    },
+    {
+      "n_streams": 3,
+      "agg_fps": 12.19,
+      "min_stream_fps": 4.01,
+      "realtime_ok": false,
+      "power_w": 22.65943023255814,
+      "fps_per_watt": 0.538,
+      "gpu_util_pct": 84.54651162790698,
+      "streams_at_realtime": 2.44,
+      "scaling_efficiency": null
+    },
+    {
+      "n_streams": 4,
+      "agg_fps": 12.25,
+      "min_stream_fps": 2.99,
+      "realtime_ok": false,
+      "power_w": 23.271819819819818,
+      "fps_per_watt": 0.526,
+      "gpu_util_pct": 87.84684684684684,
+      "streams_at_realtime": 2.45,
+      "scaling_efficiency": null
+    }
+  ],
+  "deployment": {
+    "verified_streams_per_box": 2,
+    "jetsons_needed": 75,
+    "rpi_replaced": 150,
+    "reduction_ratio": 2.0,
+    "field_power_jetson_w": 1631.6,
+    "field_power_rpi_w": 450.0
+  }
+}

@@ -1,0 +1,250 @@
+&&&& RUNNING TensorRT.trtexec [TensorRT v100300] # /usr/src/tensorrt/bin/trtexec --onnx=TNC_v11x_0511.onnx --saveEngine=TNC_dla0.engine --fp16 --useDLACore=0 --allowGPUFallback
+[08/19/2026-12:47:27] [I] === Model Options ===
+[08/19/2026-12:47:27] [I] Format: ONNX
+[08/19/2026-12:47:27] [I] Model: TNC_v11x_0511.onnx
+[08/19/2026-12:47:27] [I] Output:
+[08/19/2026-12:47:27] [I] === Build Options ===
+[08/19/2026-12:47:27] [I] Memory Pools: workspace: default, dlaSRAM: default, dlaLocalDRAM: default, dlaGlobalDRAM: default, tacticSharedMem: default
+[08/19/2026-12:47:27] [I] avgTiming: 8
+[08/19/2026-12:47:27] [I] Precision: FP32+FP16
+[08/19/2026-12:47:27] [I] LayerPrecisions: 
+[08/19/2026-12:47:27] [I] Layer Device Types: 
+[08/19/2026-12:47:27] [I] Calibration: 
+[08/19/2026-12:47:27] [I] Refit: Disabled
+[08/19/2026-12:47:27] [I] Strip weights: Disabled
+[08/19/2026-12:47:27] [I] Version Compatible: Disabled
+[08/19/2026-12:47:27] [I] ONNX Plugin InstanceNorm: Disabled
+[08/19/2026-12:47:27] [I] TensorRT runtime: full
+[08/19/2026-12:47:27] [I] Lean DLL Path: 
+[08/19/2026-12:47:27] [I] Tempfile Controls: { in_memory: allow, temporary: allow }
+[08/19/2026-12:47:27] [I] Exclude Lean Runtime: Disabled
+[08/19/2026-12:47:27] [I] Sparsity: Disabled
+[08/19/2026-12:47:27] [I] Safe mode: Disabled
+[08/19/2026-12:47:27] [I] Build DLA standalone loadable: Disabled
+[08/19/2026-12:47:27] [I] Allow GPU fallback for DLA: Enabled
+[08/19/2026-12:47:27] [I] DirectIO mode: Disabled
+[08/19/2026-12:47:27] [I] Restricted mode: Disabled
+[08/19/2026-12:47:27] [I] Skip inference: Disabled
+[08/19/2026-12:47:27] [I] Save engine: TNC_dla0.engine
+[08/19/2026-12:47:27] [I] Load engine: 
+[08/19/2026-12:47:27] [I] Profiling verbosity: 0
+[08/19/2026-12:47:27] [I] Tactic sources: Using default tactic sources
+[08/19/2026-12:47:27] [I] timingCacheMode: local
+[08/19/2026-12:47:27] [I] timingCacheFile: 
+[08/19/2026-12:47:27] [I] Enable Compilation Cache: Enabled
+[08/19/2026-12:47:27] [I] errorOnTimingCacheMiss: Disabled
+[08/19/2026-12:47:27] [I] Preview Features: Use default preview flags.
+[08/19/2026-12:47:27] [I] MaxAuxStreams: -1
+[08/19/2026-12:47:27] [I] BuilderOptimizationLevel: -1
+[08/19/2026-12:47:27] [I] Calibration Profile Index: 0
+[08/19/2026-12:47:27] [I] Weight Streaming: Disabled
+[08/19/2026-12:47:27] [I] Runtime Platform: Same As Build
+[08/19/2026-12:47:27] [I] Debug Tensors: 
+[08/19/2026-12:47:27] [I] Input(s)s format: fp32:CHW
+[08/19/2026-12:47:27] [I] Output(s)s format: fp32:CHW
+[08/19/2026-12:47:27] [I] Input build shapes: model
+[08/19/2026-12:47:27] [I] Input calibration shapes: model
+[08/19/2026-12:47:27] [I] === System Options ===
+[08/19/2026-12:47:27] [I] Device: 0
+[08/19/2026-12:47:27] [I] DLACore: 0
+[08/19/2026-12:47:27] [I] Plugins:
+[08/19/2026-12:47:27] [I] setPluginsToSerialize:
+[08/19/2026-12:47:27] [I] dynamicPlugins:
+[08/19/2026-12:47:27] [I] ignoreParsedPluginLibs: 0
+[08/19/2026-12:47:27] [I] 
+[08/19/2026-12:47:27] [I] === Inference Options ===
+[08/19/2026-12:47:27] [I] Batch: Explicit
+[08/19/2026-12:47:27] [I] Input inference shapes: model
+[08/19/2026-12:47:27] [I] Iterations: 10
+[08/19/2026-12:47:27] [I] Duration: 3s (+ 200ms warm up)
+[08/19/2026-12:47:27] [I] Sleep time: 0ms
+[08/19/2026-12:47:27] [I] Idle time: 0ms
+[08/19/2026-12:47:27] [I] Inference Streams: 1
+[08/19/2026-12:47:27] [I] ExposeDMA: Disabled
+[08/19/2026-12:47:27] [I] Data transfers: Enabled
+[08/19/2026-12:47:27] [I] Spin-wait: Disabled
+[08/19/2026-12:47:27] [I] Multithreading: Disabled
+[08/19/2026-12:47:27] [I] CUDA Graph: Disabled
+[08/19/2026-12:47:27] [I] Separate profiling: Disabled
+[08/19/2026-12:47:27] [I] Time Deserialize: Disabled
+[08/19/2026-12:47:27] [I] Time Refit: Disabled
+[08/19/2026-12:47:27] [I] NVTX verbosity: 0
+[08/19/2026-12:47:27] [I] Persistent Cache Ratio: 0
+[08/19/2026-12:47:27] [I] Optimization Profile Index: 0
+[08/19/2026-12:47:27] [I] Weight Streaming Budget: 100.000000%
+[08/19/2026-12:47:27] [I] Inputs:
+[08/19/2026-12:47:27] [I] Debug Tensor Save Destinations:
+[08/19/2026-12:47:27] [I] === Reporting Options ===
+[08/19/2026-12:47:27] [I] Verbose: Disabled
+[08/19/2026-12:47:27] [I] Averages: 10 inferences
+[08/19/2026-12:47:27] [I] Percentiles: 90,95,99
+[08/19/2026-12:47:27] [I] Dump refittable layers:Disabled
+[08/19/2026-12:47:27] [I] Dump output: Disabled
+[08/19/2026-12:47:27] [I] Profile: Disabled
+[08/19/2026-12:47:27] [I] Export timing to JSON file: 
+[08/19/2026-12:47:27] [I] Export output to JSON file: 
+[08/19/2026-12:47:27] [I] Export profile to JSON file: 
+[08/19/2026-12:47:27] [I] 
+[08/19/2026-12:47:27] [I] === Device Information ===
+[08/19/2026-12:47:27] [I] Available Devices: 
+[08/19/2026-12:47:27] [I]   Device 0: "Orin" UUID: GPU-a5657702-5281-5164-9ce8-1edbb6645d50
+[08/19/2026-12:47:27] [I] Selected Device: Orin
+[08/19/2026-12:47:27] [I] Selected Device ID: 0
+[08/19/2026-12:47:27] [I] Selected Device UUID: GPU-a5657702-5281-5164-9ce8-1edbb6645d50
+[08/19/2026-12:47:27] [I] Compute Capability: 8.7
+[08/19/2026-12:47:27] [I] SMs: 8
+[08/19/2026-12:47:27] [I] Device Global Memory: 15655 MiB
+[08/19/2026-12:47:27] [I] Shared Memory per SM: 164 KiB
+[08/19/2026-12:47:27] [I] Memory Bus Width: 256 bits (ECC disabled)
+[08/19/2026-12:47:27] [I] Application Compute Clock Rate: 0.918 GHz
+[08/19/2026-12:47:27] [I] Application Memory Clock Rate: 0.918 GHz
+[08/19/2026-12:47:27] [I] 
+[08/19/2026-12:47:27] [I] Note: The application clock rates do not reflect the actual clock rates that the GPU is currently running at.
+[08/19/2026-12:47:27] [I] 
+[08/19/2026-12:47:27] [I] TensorRT version: 10.3.0
+[08/19/2026-12:47:27] [I] Loading standard plugins
+[08/19/2026-12:47:28] [I] [TRT] [MemUsageChange] Init CUDA: CPU +2, GPU +0, now: CPU 31, GPU 5162 (MiB)
+[08/19/2026-12:47:29] [I] [TRT] [MemUsageChange] Init builder kernel library: CPU +928, GPU +864, now: CPU 1002, GPU 6071 (MiB)
+[08/19/2026-12:47:29] [I] Start parsing network model.
+[08/19/2026-12:47:29] [I] [TRT] ----------------------------------------------------------------
+[08/19/2026-12:47:29] [I] [TRT] Input filename:   TNC_v11x_0511.onnx
+[08/19/2026-12:47:29] [I] [TRT] ONNX IR version:  0.0.8
+[08/19/2026-12:47:29] [I] [TRT] Opset version:    17
+[08/19/2026-12:47:29] [I] [TRT] Producer name:    pytorch
+[08/19/2026-12:47:29] [I] [TRT] Producer version: 2.3.0
+[08/19/2026-12:47:29] [I] [TRT] Domain:           
+[08/19/2026-12:47:29] [I] [TRT] Model version:    0
+[08/19/2026-12:47:29] [I] [TRT] Doc string:       
+[08/19/2026-12:47:29] [I] [TRT] ----------------------------------------------------------------
+[08/19/2026-12:47:30] [I] Finished parsing network model. Parse time: 0.19223
+[08/19/2026-12:47:30] [W] [TRT] /model.10/m/m.0/attn/MatMul: MatMul is unsupported on DLA, relax constraints or use Convolution layer instead.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.10/m/m.0/attn/MatMul' (MATRIX_MULTIPLY): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.10/m/m.0/attn/Constant_1_output_0' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_Broadcast' (SHUFFLE): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] /model.10/m/m.0/attn/MatMul_1: MatMul is unsupported on DLA, relax constraints or use Convolution layer instead.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.10/m/m.0/attn/MatMul_1' (MATRIX_MULTIPLY): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] /model.10/m/m.1/attn/MatMul: MatMul is unsupported on DLA, relax constraints or use Convolution layer instead.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.10/m/m.1/attn/MatMul' (MATRIX_MULTIPLY): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_Broadcast_31' (SHUFFLE): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] /model.10/m/m.1/attn/MatMul_1: MatMul is unsupported on DLA, relax constraints or use Convolution layer instead.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.10/m/m.1/attn/MatMul_1' (MATRIX_MULTIPLY): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/Reshape' (SHUFFLE): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/Reshape_1' (SHUFFLE): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/Reshape_2' (SHUFFLE): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] /model.23/Split: DLA only supports slicing 4 dimensional tensors.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/Split' (SLICE): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] /model.23/Split_51: DLA only supports slicing 4 dimensional tensors.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/Split_51' (SLICE): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/dfl/Reshape' (SHUFFLE): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/dfl/Reshape_1' (SHUFFLE): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/Constant_4_output_0' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_castHelper' (CAST): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/Mul_output_0' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_castHelper_55' (CAST): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_ShapeTensorFromDims' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_ShapeTensorFromDims_57' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_ShapeTensorFromDims_60' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_ShapeTensorFromDims_64' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_ShapeTensorFromDims_68' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_ShapeTensorFromDims_71' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_ShapeTensorFromDims_76' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_ShapeTensorFromDims_81' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] /model.23/Slice: DLA only supports slicing 4 dimensional tensors.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/Slice' (SLICE): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_castHelper_84' (CAST): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/Mul_1_output_0' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_castHelper_85' (CAST): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_ShapeTensorFromDims_87' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_ShapeTensorFromDims_90' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_ShapeTensorFromDims_93' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_ShapeTensorFromDims_97' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_ShapeTensorFromDims_101' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_ShapeTensorFromDims_104' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_ShapeTensorFromDims_109' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_ShapeTensorFromDims_114' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] /model.23/Slice_1: DLA only supports slicing 4 dimensional tensors.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/Slice_1' (SLICE): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/Constant_9_output_0' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/Constant_10_output_0' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/Constant_11_output_0' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_Broadcast_118' (SHUFFLE): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] /model.23/Div_1: DLA cores do not support DIV ElementWise operation.
+[08/19/2026-12:47:30] [W] [TRT] /model.23/Div_1: ElementWise operation DIV requires that the user enable INT8 mode.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/Div_1' (ELEMENTWISE): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer '/model.23/Constant_12_output_0' (CONSTANT): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:30] [W] [TRT] Layer 'ONNXTRT_Broadcast_120' (SHUFFLE): Unsupported on DLA. Switching this layer's device type to GPU.
+[08/19/2026-12:47:31] [W] [TRT] DLA Softmax optimization is enabled because the volume of non-axis dimensions is greater than 1. This may cause a small error in the output.
+[08/19/2026-12:47:31] [W] [TRT] DLA Softmax optimization is enabled because the volume of non-axis dimensions is greater than 1. This may cause a small error in the output.
+[08/19/2026-12:47:33] [W] [TRT] Input tensor has less than 4 dimensions for /model.23/Concat_3. At least one shuffle layer will be inserted which cannot run on DLA.
+[08/19/2026-12:47:33] [W] [TRT] Dimension: 3 (14400) exceeds maximum allowed size for DLA: 8192
+[08/19/2026-12:47:33] [W] [TRT] Validation failed for DLA layer: /model.23/Concat_3. Switching to GPU fallback.
+[08/19/2026-12:47:33] [W] [TRT] Dimension: 3 (18900) exceeds maximum allowed size for DLA: 8192
+[08/19/2026-12:47:33] [W] [TRT] Validation failed for DLA layer: /model.23/dfl/Softmax. Switching to GPU fallback.
+[08/19/2026-12:47:33] [W] [TRT] Dimension: 3 (18900) exceeds maximum allowed size for DLA: 8192
+[08/19/2026-12:47:33] [W] [TRT] Validation failed for DLA layer: /model.23/dfl/conv/Conv. Switching to GPU fallback.
+[08/19/2026-12:47:33] [W] [TRT] Input tensor has less than 4 dimensions for /model.23/Sub. At least one shuffle layer will be inserted which cannot run on DLA.
+[08/19/2026-12:47:33] [W] [TRT] Dimension: 3 (18900) exceeds maximum allowed size for DLA: 8192
+[08/19/2026-12:47:33] [W] [TRT] Validation failed for DLA layer: /model.23/Sub. Switching to GPU fallback.
+[08/19/2026-12:47:33] [W] [TRT] Input tensor has less than 4 dimensions for /model.23/Add_1. At least one shuffle layer will be inserted which cannot run on DLA.
+[08/19/2026-12:47:33] [W] [TRT] Dimension: 3 (18900) exceeds maximum allowed size for DLA: 8192
+[08/19/2026-12:47:33] [W] [TRT] Validation failed for DLA layer: /model.23/Add_1. Switching to GPU fallback.
+[08/19/2026-12:47:33] [W] [TRT] Input tensor has less than 4 dimensions for /model.23/Add_2. At least one shuffle layer will be inserted which cannot run on DLA.
+[08/19/2026-12:47:33] [W] [TRT] Dimension: 3 (18900) exceeds maximum allowed size for DLA: 8192
+[08/19/2026-12:47:33] [W] [TRT] Validation failed for DLA layer: /model.23/Add_2. Switching to GPU fallback.
+[08/19/2026-12:47:33] [W] [TRT] Input tensor has less than 4 dimensions for /model.23/Sigmoid. At least one shuffle layer will be inserted which cannot run on DLA.
+[08/19/2026-12:47:33] [W] [TRT] Dimension: 3 (18900) exceeds maximum allowed size for DLA: 8192
+[08/19/2026-12:47:33] [W] [TRT] Validation failed for DLA layer: /model.23/Sigmoid. Switching to GPU fallback.
+[08/19/2026-12:47:33] [W] [TRT] Input tensor has less than 4 dimensions for /model.23/Sub_1. At least one shuffle layer will be inserted which cannot run on DLA.
+[08/19/2026-12:47:33] [W] [TRT] Dimension: 3 (18900) exceeds maximum allowed size for DLA: 8192
+[08/19/2026-12:47:33] [W] [TRT] Validation failed for DLA layer: /model.23/Sub_1. Switching to GPU fallback.
+[08/19/2026-12:47:33] [W] [TRT] Input tensor has less than 4 dimensions for /model.23/Concat_4. At least one shuffle layer will be inserted which cannot run on DLA.
+[08/19/2026-12:47:33] [W] [TRT] Dimension: 3 (18900) exceeds maximum allowed size for DLA: 8192
+[08/19/2026-12:47:33] [W] [TRT] Validation failed for DLA layer: /model.23/Concat_4. Switching to GPU fallback.
+[08/19/2026-12:47:33] [W] [TRT] Input tensor has less than 4 dimensions for /model.23/Mul_2. At least one shuffle layer will be inserted which cannot run on DLA.
+[08/19/2026-12:47:33] [W] [TRT] Dimension: 3 (18900) exceeds maximum allowed size for DLA: 8192
+[08/19/2026-12:47:33] [W] [TRT] Validation failed for DLA layer: /model.23/Mul_2. Switching to GPU fallback.
+[08/19/2026-12:47:33] [W] [TRT] Input tensor has less than 4 dimensions for /model.23/Concat_5. At least one shuffle layer will be inserted which cannot run on DLA.
+[08/19/2026-12:47:33] [W] [TRT] Dimension: 3 (18900) exceeds maximum allowed size for DLA: 8192
+[08/19/2026-12:47:33] [W] [TRT] Validation failed for DLA layer: /model.23/Concat_5. Switching to GPU fallback.
+[08/19/2026-12:48:16] [I] [TRT] Local timing cache in use. Profiling results in this builder pass will not be stored.
+[08/19/2026-12:50:49] [I] [TRT] Detected 1 inputs and 3 output network tensors.
+[08/19/2026-12:51:00] [I] [TRT] Total Host Persistent Memory: 10176
+[08/19/2026-12:51:00] [I] [TRT] Total Device Persistent Memory: 0
+[08/19/2026-12:51:00] [I] [TRT] Total Scratch Memory: 11102720
+[08/19/2026-12:51:00] [I] [TRT] [BlockAssignment] Started assigning block shifts. This will take 59 steps to complete.
+[08/19/2026-12:51:00] [I] [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 5.56631ms to assign 11 blocks to 59 nodes requiring 88704512 bytes.
+[08/19/2026-12:51:00] [I] [TRT] Total Activation Memory: 88704512
+[08/19/2026-12:51:00] [I] [TRT] Total Weights Memory: 115244
+[08/19/2026-12:51:00] [I] [TRT] Engine generation completed in 164.01 seconds.
+[08/19/2026-12:51:00] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 118 MiB, GPU 297 MiB
+[08/19/2026-12:51:00] [I] [TRT] [MemUsageStats] Peak memory usage during Engine building and serialization: CPU: 2296 MiB
+[08/19/2026-12:51:00] [I] Engine built in 210.298 sec.
+[08/19/2026-12:51:00] [I] Created engine with size: 119.208 MiB
+[08/19/2026-12:51:00] [I] [TRT] Loaded engine size: 119 MiB
+[08/19/2026-12:51:00] [I] Engine deserialized in 0.0731676 sec.
+[08/19/2026-12:51:01] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +84, now: CPU 118, GPU 84 (MiB)
+[08/19/2026-12:51:01] [I] Setting persistentCacheLimit to 0 bytes.
+[08/19/2026-12:51:01] [I] Created execution context with device memory size: 84.5952 MiB
+[08/19/2026-12:51:01] [I] Using random values for input images
+[08/19/2026-12:51:01] [I] Input binding for images with dimensions 1x3x960x960 is created.
+[08/19/2026-12:51:01] [I] Output binding for output0 with dimensions 1x5x18900 is created.
+[08/19/2026-12:51:01] [I] Starting inference
+[08/19/2026-12:51:11] [I] Warmup completed 1 queries over 200 ms
+[08/19/2026-12:51:11] [I] Timing trace has 10 queries over 9.99375 s
+[08/19/2026-12:51:11] [I] 
+[08/19/2026-12:51:11] [I] === Trace details ===
+[08/19/2026-12:51:11] [I] Trace averages of 10 runs:
+[08/19/2026-12:51:11] [I] Average on 10 runs - GPU latency: 908.7 ms - Host latency: 909.285 ms (enqueue 2.47605 ms)
+[08/19/2026-12:51:11] [I] 
+[08/19/2026-12:51:11] [I] === Performance summary ===
+[08/19/2026-12:51:11] [I] Throughput: 1.00063 qps
+[08/19/2026-12:51:11] [I] Latency: min = 908.907 ms, max = 909.936 ms, mean = 909.286 ms, median = 909.195 ms, percentile(90%) = 909.652 ms, percentile(95%) = 909.936 ms, percentile(99%) = 909.936 ms
+[08/19/2026-12:51:11] [I] Enqueue Time: min = 1.62699 ms, max = 2.69897 ms, mean = 2.47605 ms, median = 2.54749 ms, percentile(90%) = 2.63428 ms, percentile(95%) = 2.69897 ms, percentile(99%) = 2.69897 ms
+[08/19/2026-12:51:11] [I] H2D Latency: min = 0.53186 ms, max = 0.701376 ms, mean = 0.562154 ms, median = 0.538635 ms, percentile(90%) = 0.618652 ms, percentile(95%) = 0.701376 ms, percentile(99%) = 0.701376 ms
+[08/19/2026-12:51:11] [I] GPU Compute Time: min = 908.346 ms, max = 909.379 ms, mean = 908.7 ms, median = 908.636 ms, percentile(90%) = 909.09 ms, percentile(95%) = 909.379 ms, percentile(99%) = 909.379 ms
+[08/19/2026-12:51:11] [I] D2H Latency: min = 0.0175781 ms, max = 0.0251465 ms, mean = 0.0235474 ms, median = 0.0239258 ms, percentile(90%) = 0.0250244 ms, percentile(95%) = 0.0251465 ms, percentile(99%) = 0.0251465 ms
+[08/19/2026-12:51:11] [I] Total Host Walltime: 9.99375 s
+[08/19/2026-12:51:11] [I] Total GPU Compute Time: 9.087 s
+[08/19/2026-12:51:11] [I] Explanations of the performance metrics are printed in the verbose logs.
+[08/19/2026-12:51:11] [I] 
+&&&& PASSED TensorRT.trtexec [TensorRT v100300] # /usr/src/tensorrt/bin/trtexec --onnx=TNC_v11x_0511.onnx --saveEngine=TNC_dla0.engine --fp16 --useDLACore=0 --allowGPUFallback

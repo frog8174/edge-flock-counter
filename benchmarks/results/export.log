@@ -1,0 +1,63 @@
+/usr/lib/python3/dist-packages/requests/__init__.py:87: RequestsDependencyWarning: urllib3 (2.5.0) or chardet (4.0.0) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+[12:08:50] 載入 TNC_v11x_0511.pt ...
+[12:08:50] 匯出 TensorRT FP16 engine (imgsz=960, batch=1) ...
+Ultralytics 8.3.165 🚀 Python-3.10.12 torch-2.3.0 CUDA:0 (Orin, 15656MiB)
+YOLO11x summary (fused): 190 layers, 56,828,179 parameters, 0 gradients, 194.4 GFLOPs
+
+[34m[1mPyTorch:[0m starting from 'TNC_v11x_0511.pt' with input shape (1, 3, 960, 960) BCHW and output shape(s) (1, 5, 18900) (109.1 MB)
+[31m[1mrequirements:[0m Ultralytics requirement ['onnxruntime-gpu'] not found, attempting AutoUpdate...
+ERROR: Could not find a version that satisfies the requirement onnxruntime-gpu (from versions: none)
+
+[notice] A new release of pip is available: 25.2 -> 26.2.1
+[notice] To update, run: python3 -m pip install --upgrade pip
+ERROR: No matching distribution found for onnxruntime-gpu
+WARNING ⚠️ Retry 1/2 failed: Command 'pip install --no-cache-dir "onnxruntime-gpu" ' returned non-zero exit status 1.
+ERROR: Could not find a version that satisfies the requirement onnxruntime-gpu (from versions: none)
+
+[notice] A new release of pip is available: 25.2 -> 26.2.1
+[notice] To update, run: python3 -m pip install --upgrade pip
+ERROR: No matching distribution found for onnxruntime-gpu
+WARNING ⚠️ Retry 2/2 failed: Command 'pip install --no-cache-dir "onnxruntime-gpu" ' returned non-zero exit status 1.
+WARNING ⚠️ [31m[1mrequirements:[0m ❌ Command 'pip install --no-cache-dir "onnxruntime-gpu" ' returned non-zero exit status 1.
+
+[34m[1mONNX:[0m starting export with onnx 1.17.0 opset 17...
+[34m[1mONNX:[0m slimming with onnxslim 0.1.59...
+[34m[1mONNX:[0m export success ✅ 13.2s, saved as 'TNC_v11x_0511.onnx' (217.3 MB)
+
+[34m[1mTensorRT:[0m starting export with TensorRT 10.3.0...
+[08/19/2026-12:09:06] [TRT] [I] [MemUsageChange] Init CUDA: CPU +2, GPU +0, now: CPU 1251, GPU 6918 (MiB)
+[08/19/2026-12:09:07] [TRT] [I] [MemUsageChange] Init builder kernel library: CPU +927, GPU +485, now: CPU 2221, GPU 7405 (MiB)
+[08/19/2026-12:09:07] [TRT] [I] ----------------------------------------------------------------
+[08/19/2026-12:09:07] [TRT] [I] Input filename:   TNC_v11x_0511.onnx
+[08/19/2026-12:09:07] [TRT] [I] ONNX IR version:  0.0.8
+[08/19/2026-12:09:07] [TRT] [I] Opset version:    17
+[08/19/2026-12:09:07] [TRT] [I] Producer name:    pytorch
+[08/19/2026-12:09:07] [TRT] [I] Producer version: 2.3.0
+[08/19/2026-12:09:07] [TRT] [I] Domain:           
+[08/19/2026-12:09:07] [TRT] [I] Model version:    0
+[08/19/2026-12:09:07] [TRT] [I] Doc string:       
+[08/19/2026-12:09:07] [TRT] [I] ----------------------------------------------------------------
+[34m[1mTensorRT:[0m input "images" with shape(1, 3, 960, 960) DataType.FLOAT
+[34m[1mTensorRT:[0m output "output0" with shape(1, 5, 18900) DataType.FLOAT
+[34m[1mTensorRT:[0m building FP16 engine as TNC_v11x_0511.engine
+[08/19/2026-12:09:08] [TRT] [I] Local timing cache in use. Profiling results in this builder pass will not be stored.
+[08/19/2026-12:26:53] [TRT] [I] Detected 1 inputs and 1 output network tensors.
+[08/19/2026-12:26:59] [TRT] [I] Total Host Persistent Memory: 1012960
+[08/19/2026-12:26:59] [TRT] [I] Total Device Persistent Memory: 18432
+[08/19/2026-12:26:59] [TRT] [I] Total Scratch Memory: 20476928
+[08/19/2026-12:26:59] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 263 steps to complete.
+[08/19/2026-12:26:59] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 32.8247ms to assign 12 blocks to 263 nodes requiring 126491136 bytes.
+[08/19/2026-12:26:59] [TRT] [I] Total Activation Memory: 126489600
+[08/19/2026-12:26:59] [TRT] [I] Total Weights Memory: 113828908
+[08/19/2026-12:26:59] [TRT] [I] Engine generation completed in 1071.8 seconds.
+[08/19/2026-12:26:59] [TRT] [I] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 10 MiB, GPU 675 MiB
+[08/19/2026-12:27:00] [TRT] [I] [MemUsageStats] Peak memory usage during Engine building and serialization: CPU: 3716 MiB
+[34m[1mTensorRT:[0m export success ✅ 1087.9s, saved as 'TNC_v11x_0511.engine' (111.8 MB)
+
+Export complete (1090.1s)
+Results saved to [1m/home/jetson/edge-ai-demo/chicken[0m
+Predict:         yolo predict task=detect model=TNC_v11x_0511.engine imgsz=960 half 
+Validate:        yolo val task=detect model=TNC_v11x_0511.engine imgsz=960 data=data.yaml half 
+Visualize:       https://netron.app
+[12:27:00] 完成，耗時 1090s

@@ -1,0 +1,36 @@
+[
+  {
+    "n_streams": 1,
+    "frames_per_stream": 30,
+    "imgsz": 960,
+    "augment": true,
+    "agg_fps": 2.82,
+    "agg_fps_wall": 2.0,
+    "min_stream_fps": 2.82,
+    "realtime_margin": 0.56,
+    "realtime_ok": false,
+    "wall_s": 14.98,
+    "fps_per_watt": 0.143,
+    "per_stream": [
+      {
+        "stream": 0,
+        "video": "20250501_0700.mp4",
+        "frames": 30,
+        "wall_s": 10.63,
+        "fps": 2.82,
+        "lat_mean_ms": 349.1,
+        "lat_p50_ms": 347.0,
+        "lat_p95_ms": 361.7,
+        "lat_p99_ms": 362.2,
+        "det_mean": 255.2,
+        "det_max": 332
+      }
+    ],
+    "power_w": 19.7026625,
+    "power_peak_w": 23.853,
+    "gpu_util_pct": 66.025,
+    "gpu_util_peak_pct": 99,
+    "temp_c": 64.495275,
+    "temp_peak_c": 66.031
+  }
+]
