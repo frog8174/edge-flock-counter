@@ -20,7 +20,10 @@ One problem from the field stayed with me. The Raspberry Pis in the house could 
 
 ## Field setup
 
-![House layout and camera placement](docs/assets/house_layout.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/house_layout_dark.png">
+  <img alt="House layout and camera placement" src="docs/assets/house_layout.png">
+</picture>
 
 *One house is 113 m × 14.8 m, and the farm has 10 of them. Capture units hang on the central beams every 8 m. Each unit's two cameras cover the two halves of the house (shaded).*
 
